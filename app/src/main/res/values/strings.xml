@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ComposePlayGround</string>
     <string name="title_activity_google">GoogleActivity</string>
+    <string name="title_activity_coupang">CoupangActivity</string>
 </resources>

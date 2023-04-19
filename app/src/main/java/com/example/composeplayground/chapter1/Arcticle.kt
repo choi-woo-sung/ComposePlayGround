@@ -40,32 +40,32 @@ class MainActivity : ComponentActivity() {
             ComposePlayGroundTheme {
                 Surface(
                     color = MaterialTheme.colorScheme.background,
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.fillMaxSize(),
                 ) {
                     Scaffold(
                         topBar = {
                             CenterAlignedTopAppBar(
                                 title = { Text(text = "기사") },
                                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                                    containerColor = MaterialTheme.colorScheme.tertiary
+                                    containerColor = MaterialTheme.colorScheme.tertiary,
                                 ),
 
                                 actions = {
                                     IconButton(onClick = { /* doSomething() */ }) {
                                         Icon(
                                             imageVector = Icons.Filled.Favorite,
-                                            contentDescription = "Localized description"
+                                            contentDescription = "Localized description",
                                         )
                                     }
                                 },
                                 navigationIcon = {
                                     Icon(
                                         imageVector = Icons.Filled.ArrowBack,
-                                        contentDescription = "Localized description"
+                                        contentDescription = "Localized description",
                                     )
-                                }
+                                },
                             )
-                        }
+                        },
 
                     ) {
                         Surface(modifier = Modifier.padding(it)) {
@@ -97,7 +97,7 @@ class MainActivity : ComponentActivity() {
                 .border(
                     width = 4.dp,
                     color = MaterialTheme.colorScheme.primary,
-                    shape = RoundedCornerShape(20)
+                    shape = RoundedCornerShape(20),
                 )
                 .fillMaxWidth()
                 .background(color = MaterialTheme.colorScheme.secondary),
@@ -110,7 +110,7 @@ class MainActivity : ComponentActivity() {
                     .wrapContentSize(Alignment.Center),
                 style = MaterialTheme.typography.headlineLarge,
                 fontSize = 26.sp,
-                fontFamily = FontFamily(Font(R.font.pretendardmedium))
+                fontFamily = FontFamily(Font(R.font.pretendardmedium)),
             )
         }
     }
@@ -123,18 +123,18 @@ class MainActivity : ComponentActivity() {
                     animationSpec = spring(
                         dampingRatio = Spring.DampingRatioHighBouncy,
                         stiffness = Spring.StiffnessMedium,
-                        visibilityThreshold = null
-                    )
+                        visibilityThreshold = null,
+                    ),
                 )
-                .height(if (click) 0.dp else 400.dp)
+                .height(if (click) 0.dp else 400.dp),
         ) {
             Row() {
-                Image(painter = painterResource(id = R.drawable.dog), contentDescription = null)
+//                Image(painter = painterResource(id = R.drawable.dog), contentDescription = null)
                 Text(
                     text = "BTS의 갑작스런 활동 중단은 오늘 전세계 언론사의 주요 뉴스였습니다.\n" +
                         "\n" +
                         "CNN은 도쿄에서.\n" +
-                        "\n"
+                        "\n",
                 )
             }
         }
@@ -154,7 +154,7 @@ class MainActivity : ComponentActivity() {
         Surface(
             Modifier
                 .fillMaxWidth()
-                .wrapContentSize(Alignment.CenterEnd)
+                .wrapContentSize(Alignment.CenterEnd),
         ) {
             Row() {
                 Chat("아 bts오빠들 봐야하는데... ")
@@ -173,7 +173,8 @@ class MainActivity : ComponentActivity() {
                 .border(2.dp, color = MaterialTheme.colorScheme.secondary, shape = CircleShape),
         ) {
             Image(
-                painter = painterResource(id = R.drawable.wooman), contentDescription = null,
+                painter = painterResource(id = R.drawable.wooman),
+                contentDescription = null,
                 contentScale = ContentScale.Crop,
             )
         }
@@ -191,7 +192,7 @@ class MainActivity : ComponentActivity() {
                 Text(
                     text = text,
                     style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.padding(4.dp)
+                    modifier = Modifier.padding(4.dp),
                 )
             }
         }
