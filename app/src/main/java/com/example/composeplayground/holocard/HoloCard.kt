@@ -33,6 +33,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
@@ -113,10 +117,20 @@ fun HoloCard() {
                     .width(300.dp)
                     .height(600.dp)
                     .graphicsLayer(
-                        rotationX = orientationState[1],
-                        rotationY = rotationX + orientationState[0],
-                        rotationZ = orientationState[2]
-                    ),
+                        rotationX = orientationState[1] / 3,
+                        rotationY = rotationX + orientationState[2] / 3,
+                    ).drawWithContent {
+                        drawContent()
+                        val colors = listOf(Color.Black, Color(0xFFB6FBFF))
+                        val background = Brush.linearGradient(
+                            colors = colors,
+                            start = Offset(0f, 0f),
+
+                            end = Offset(orientationState[1] / 3f, orientationState[2] / 3f),
+                        )
+
+                        drawRect(brush = background, blendMode = BlendMode.ColorDodge)
+                    },
             ) {
                 HoloFront()
             }
